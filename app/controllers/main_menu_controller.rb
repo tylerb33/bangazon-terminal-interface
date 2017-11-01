@@ -16,8 +16,8 @@ class MainMenuController
     puts "10. Show customer revenue report"
     puts "11. Show overall product popularity"
     puts "12. Leave Bangazon!"
-
     puts "> "
+    
     user_input = gets.chomp
 
     case user_input
