@@ -6,7 +6,15 @@ class MainMenuController
     puts "*************************************************"
     puts "1. Create a customer account"
     puts "2. Choose active customer"
-    # Add all other options available to the user here.
+    puts "3. Create a payment option"
+    puts "4. Add product to sell"
+    puts "5. Add product to shopping cart"
+    puts "6. Complete an order"
+    puts "7. Remove customer product"
+    puts "8. Update product information"
+    puts "9. Show stale products"
+    puts "10. Show customer revenue report"
+    puts "11. Show overall product popularity"
     puts "12. Leave Bangazon!"
 
     puts "> "
