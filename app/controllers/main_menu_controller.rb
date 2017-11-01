@@ -1,4 +1,8 @@
 require 'customer_controller.rb'
+require 'order_controller.rb'
+require 'payment_type_controller.rb'
+require 'product_controller.rb'
+require 'order_product_controller.rb' 
 
 class MainMenuController
     def display_main_menu
