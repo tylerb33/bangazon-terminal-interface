@@ -1,4 +1,4 @@
 require 'sqlite3'
 
-class Customer
+class Product
 end
