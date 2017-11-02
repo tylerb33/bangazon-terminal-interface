@@ -4,7 +4,7 @@ require_relative '../controllers/customer_controller.rb'
 class CustomerTest < Minitest::Test
 
 	def setup
-		customer_test = Customer.new
+		customer_test = CustomerController.new
 	end
 
 	def test_first_name_sets_correct_value

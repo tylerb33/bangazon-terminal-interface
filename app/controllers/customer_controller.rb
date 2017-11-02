@@ -1,4 +1,4 @@
-require './models/customer.rb'
+require_relative '../models/customer.rb'
 
 class CustomerController
 

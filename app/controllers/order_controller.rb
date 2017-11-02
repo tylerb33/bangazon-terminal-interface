@@ -1,4 +1,4 @@
-require './models/order.rb'
+require_relative '../models/order.rb'
 
 class OrderController
 end

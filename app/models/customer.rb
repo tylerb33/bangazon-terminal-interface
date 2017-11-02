@@ -1,5 +1,4 @@
 require 'sqlite3'
-require_relative '../controllers/customer_controller.rb'
 
 class Customer
 	attr_accessor :first_name, :last_name, :active, :street_address, :city, :state, :postal_code, :phone, :payment
