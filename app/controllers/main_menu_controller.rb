@@ -30,6 +30,7 @@ class MainMenuController
         when "1"
             customer = CustomerController.new
             customer.get_customer_info
+
             # Diplay the prompts for creating a new customer here.
         when "2"
             customer = CustomerController.new
