@@ -29,7 +29,7 @@ class MainMenuController
         case user_input
         when "1"
             customer = CustomerController.new
-            customer.get_customer_info
+            customer.gather_all_customer_info
 
             # Diplay the prompts for creating a new customer here.
         when "2"
