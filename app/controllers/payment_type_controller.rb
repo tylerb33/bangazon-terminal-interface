@@ -1,4 +1,4 @@
-require './models/product_type.rb'
+require './models/payment_type.rb'
 
 class PaymentTypeController
 end
