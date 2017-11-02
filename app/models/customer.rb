@@ -1,28 +1,28 @@
 require 'sqlite3'
+require_relative '../controllers/customer_controller.rb'
 
 class Customer
+	attr_accessor :first_name, :last_name, :active, :street_address, :city, :state, :postal_code, :phone, :payment
 
 	def initialize(new_customer_hash)
-		@first_name = new_customer_hash.
-		@last_name = new_customer_hash. 
-		@active = new_customer_hash. 
-		@street_address = new_customer_hash. 
-		@city = new_customer_hash. 
-		@state = new_customer_hash. 
-		@postal_code = new_customer_hash.
-		@phone = new_customer_hash. 
-		@payment = new_customer_hash. 
-
+		@first_name = new_customer_hash[:info_first_name]
+		@last_name = new_customer_hash[:info_last_name]
+		@active = false 
+		@street_address = new_customer_hash[:info_street_address]
+		@city = new_customer_hash[:info_city]
+		@state = new_customer_hash[:info_state]
+		@postal_code = new_customer_hash[:info_postal_code]
+		@phone = new_customer_hash[:info_phone_number]
+		@payment = nil
 	end
 		
-	end
-	def add_new_customer()
 
-		db = SQLite3::Database.open("../../chinook/chinook_sqlite.sqlite")
+	def add_new_customer
+
+		db = SQLite3::Database.open("../db/sprint2_database.sqlite")
 		db.transaction
-		db.execute("INSERT INTO Customer (First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) 
-			VALUES (new_customer_hash., new_customer_hash., new_customer_hash., new_customer_hash., new_customer_hash., new_customer_hash., new_customer_hash., new_customer_hash., new_customer_hash.);")
-
+		db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) 
+			VALUES(@first_name, @last_name, @active, @street_address, @city, @state, @postal_code, @phone, @payment);")
 		db.close
 
 		rescue SQLite3::Exception => e
@@ -30,8 +30,8 @@ class Customer
 		db.rollback
 	end
 
-	def get_active_customers
-	end
+	# def get_active_customers
+	# end
 
 
 end
