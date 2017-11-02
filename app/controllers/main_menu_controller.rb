@@ -28,43 +28,42 @@ class MainMenuController
 
         case user_input
         when "1"
-            puts "you pressed 1."
-            # customer = CustomerController.new
-            # customer.get_customer_info
-            # Call the method that will diplay the prompts for creating a new customer here.
+            customer = CustomerController.new
+            customer.get_customer_info
+            # Diplay the prompts for creating a new customer here.
         when "2"
-            puts "you pressed 2."
-          # Call the method that will diplay the prompts for choosing an active customer here.
+            customer = CustomerController.new
+          # List all active customers to choose from.
         when "3"
-            puts "you pressed 3."
-            # Call the method that will diplay the prompts for creating a new customer here.
+            payment = PaymentTypeController.new
+            # Create a payment type.
         when "4"
-            puts "you pressed 4."
-            # Call the method that will diplay the prompts for creating a new customer here.
+            product = ProductController.new
+            # Add a product to sell.
         when "5"
-            puts "you pressed 5."
-            # Call the method that will diplay the prompts for creating a new customer here.
+            order = OrderController.new
+            # Add product to shopping cart
         when "6"
-            puts "you pressed 6."
-            # Call the method that will diplay the prompts for creating a new customer here.
+            order = OrderController.new
+            # Complete an order
         when "7"
-            puts "you pressed 7."
-            # Call the method that will diplay the prompts for creating a new customer here.
+            product = ProductController.new
+            # Remove customer product
         when "8"
-            puts "you pressed 8"
-            # Call the method that will diplay the prompts for creating a new customer here.
+            product = ProductController.new
+            # Update product information
         when "9"
-            puts "you pressed 9"
-            # Call the method that will diplay the prompts for creating a new customer here.
+            product = ProductController.new
+            # Show stale products
         when "10"
-            puts "you pressed 10"
-            # Call the method that will diplay the prompts for creating a new customer here.
+            customer = CustomerController.new
+            # Show customer revenue report
         when "11"
-            puts "you pressed 11"
-            # Call the method that will diplay the prompts for creating a new customer here.
+            # Should this be in the order controller or order_product controller?
+            # Show overall product popularity
         when "12"
-            puts "you pressed 12"
-            # Call the method that will diplay the prompts for creating a new customer here.
+            # Need to investigate which method to run here in order to correctly exit the program.
+            # Leave Bangazon!
         end
     end
 end
