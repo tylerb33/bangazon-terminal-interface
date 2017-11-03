@@ -5,10 +5,11 @@ class CustomerController
     attr_accessor :customer_info
 
     def initialize
-        @customer_info = Hash.new     
+        @customer_info = Hash.new  
+
     end
 
-    def gather_all_customer_info
+    def gather_all_customer_info 
         get_customer_first_name
         get_customer_last_name
         get_customer_street_address
@@ -16,6 +17,9 @@ class CustomerController
         get_customer_state
         get_customer_postal_code
         get_customer_phone_number
+
+        @customer_model = Customer.new(@customer_info) 
+        @customer_model.add_new_customer 
     end
 
 ######################################################

@@ -5,8 +5,21 @@ class CustomerTest < Minitest::Test
 
     def setup
     # setup two things
-    @customer = Customer.new("First_Name", "Last_Name", "Active", "Street Address", "City", "State", 37130, 1231231234, 1)
-    @customer.get_customer_info
+    @customer = Customer.new(
+
+        { 
+        :info_first_name => "Jane",  
+        :info_last_name => "Doe", 
+        :active => false, 
+        :info_street_address => "blah blah 123",
+        :info_city => "Nashville",
+        :info_state => "TN",
+        :info_postal_code => "12345",
+        :info_phone_number => "1-123-234-5678",
+        :payment => nil
+        } 
+
+        )
     
     end
 
@@ -18,7 +31,7 @@ class CustomerTest < Minitest::Test
     end
 
     def test_initialize_for_arguments
-    assert_instance_of Customer, Customer.new("arg1", "arg2", "arg3", "arg4", "arg5", "arg6", "arg7", "arg8", "arg9")
+    assert_instance_of Customer, @customer 
     end
 
     def test_create_customer_sql
