@@ -24,7 +24,7 @@ class Customer
 		db.transaction
 		# db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) 
         # 	VALUES(@first_name, @last_name, @active, @street_address, @city, @state, @postal_code, @phone, @payment);")
-        sql_query = "INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) VALUES ('#{@first_name}', '#{@last_name}', '#{@active}', '#{@street_address}', '#{@city}', '#{@state}', '#{@postal_code}', '#{@phone}', '#{@payment}' );"
+        # sql_query = "INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) VALUES ('#{@first_name}', '#{@last_name}', '#{@active}', '#{@street_address}', '#{@city}', '#{@state}', '#{@postal_code}', '#{@phone}', '#{@payment}' );"
         #binding.pry
 
         db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) VALUES ('#{@first_name}', '#{@last_name}', '#{@active}', '#{@street_address}', '#{@city}', '#{@state}', '#{@postal_code}', '#{@phone}', '#{@payment}' );")
@@ -34,13 +34,37 @@ class Customer
 		rescue SQLite3::Exception => e
 		p "Exception with database query: #{e}"
 		db.rollback
-	end
+		end
 	db.close
 
 	end
 
-	# def get_active_customers
-	# end
+	def get_all_customers
+		begin
+			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
+			db.execute("SELECT * FROM Customers")
+		rescue SQLite3::Exception => e
+			p "Exception with database query: #{e}"
+		end
+	end
 
+	def get_single_customer(cusId)
+		begin
+			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
+			db.execute("SELECT * FROM Customers WHERE CustomerId = #{cusId}")
+		rescue SQLite3::Exception => e
+			p "Exception with database query: #{e}"
+		end
+	end
+
+	def update_single_customer(colName, cusId)
+		begin
+			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
+			db.execute("UPDATE Customers SET '#{colName}' = 'Pants' WHERE CustomerId = #{cusId}")
+		rescue SQLite3::Exception => e
+			p "Exception with database query: #{e}"
+			db.rollback
+		end
+	end
 
 end
