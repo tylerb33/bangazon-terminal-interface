@@ -2,6 +2,8 @@ require_relative '../models/customer.rb'
 
 class CustomerController
 
+    attr_accessor :customer_info
+
     def initialize
         @customer_info = Hash.new     
     end
