@@ -20,8 +20,9 @@ class Customer
 
 		db = SQLite3::Database.open("../db/sprint2_database.sqlite")
 		db.transaction
-		db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) 
-			VALUES(@first_name, @last_name, @active, @street_address, @city, @state, @postal_code, @phone, @payment);")
+		# db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) 
+        # 	VALUES(@first_name, @last_name, @active, @street_address, @city, @state, @postal_code, @phone, @payment);")
+        db.execute"INSERT INTO Customers(First_Name) VALUES ('@first_name')"
 		db.close
 
 		rescue SQLite3::Exception => e

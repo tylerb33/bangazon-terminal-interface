@@ -14,7 +14,7 @@ class CustomerTest < Minitest::Test
 	end
 
 	def test_first_name_sets_correct_value
-		@customer_controller.set_customer_first_name("Nora")
+		@customer_controller.set_customer_first_name("Tyler")
 		assert_equal "Tyler", @customer_controller.customer_info[:info_first_name]
 	end
 
