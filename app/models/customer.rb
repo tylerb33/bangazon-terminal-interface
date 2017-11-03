@@ -1,4 +1,5 @@
 require 'sqlite3'
+require 'pry'
 
 class Customer
 	attr_accessor :first_name, :last_name, :active, :street_address, :city, :state, :postal_code, :phone, :payment
@@ -17,17 +18,25 @@ class Customer
 		
 
 	def add_new_customer
+	begin
 
 		db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
 		db.transaction
 		# db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) 
         # 	VALUES(@first_name, @last_name, @active, @street_address, @city, @state, @postal_code, @phone, @payment);")
+        sql_query = "INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) VALUES ('#{@first_name}', '#{@last_name}', '#{@active}', '#{@street_address}', '#{@city}', '#{@state}', '#{@postal_code}', '#{@phone}', '#{@payment}' );"
+        #binding.pry
+
         db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) VALUES ('#{@first_name}', '#{@last_name}', '#{@active}', '#{@street_address}', '#{@city}', '#{@state}', '#{@postal_code}', '#{@phone}', '#{@payment}' );")
-		db.close
+        db.commit
+	
 
 		rescue SQLite3::Exception => e
 		p "Exception with database query: #{e}"
 		db.rollback
+	end
+	db.close
+
 	end
 
 	# def get_active_customers
