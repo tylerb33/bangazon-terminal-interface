@@ -92,6 +92,8 @@ class CustomerController
     def set_customer_phone_number(phone_number)
         @customer_info[:info_phone_number] = phone_number
     end	
+######################################################
+
 
 
 end
