@@ -37,6 +37,7 @@ class MainMenuController
           # List all active customers to choose from.
         when "3"
             payment = PaymentTypeController.new
+            payment.gather_payment_info
             # Create a payment type.
         when "4"
             product = ProductController.new
