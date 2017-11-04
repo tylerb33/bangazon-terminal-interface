@@ -18,7 +18,7 @@ class Customer
 		
 
 	def add_new_customer
-	begin
+	begin 
 
 		db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
 		db.transaction

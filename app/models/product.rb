@@ -13,7 +13,47 @@ class Product
     def create_new_product
         begin
             db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
-        rescue
+            db.transaction
+            db.execute("INSERT INTO Products(Price, Quantity, Title, Description) VALUES ('#{@price}', '#{@quantity}', '#{@title}', '#{@description}');")
+            db.commit
+
+        rescue SQLite3::Exception => e
+            p "Exception with database query: #{e}"
+            db.rollback
+        end
+        db.close
+    end
+
+    def get_all_products
+        begin
+            db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
+            db.transaction
+            db.execute("SELECT * FROM Products;")
+
+        rescue SQLite3::Exception => e
+            p "Exception with database query: #{e}"
+        end
+    end
+
+    def get_single_product(custId)
+        begin
+            db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
+            db.transaction
+            db.execute("SELECT * FROM Products where Product_Id = #{custId};")
+
+        rescue SQLite3::Exception => e
+            p "Exception with database query: #{e}"
+        end
+    end
+
+    def update_single_product(colName, prodId)
+        begin
+            db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
+            db.transaction
+            db.execute("UPDATE Products SET '#{colName}' = 'kite' WHERE Product_Id = #{prodId}")
+
+        rescue SQLite3::Exception => e
+            p "Exception with database query: #{e}"
         end
     end
 end 
