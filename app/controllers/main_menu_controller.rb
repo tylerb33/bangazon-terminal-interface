@@ -41,6 +41,7 @@ class MainMenuController
             # Create a payment type.
         when "4"
             product = ProductController.new
+            product.get_all_product_info
             # Add a product to sell.
         when "5"
             order = OrderController.new
