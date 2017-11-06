@@ -1,31 +1,63 @@
 # Bangazon
 
-## The Command Line Ordering System
+## The Command Line Ordering System - a test driven application!
 
-In this group project, you will be allowing a user to interact with a basic product ordering database via a command line interface.
+## Getting Started
 
-## Ordering System Interface
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Main Menu
+### Prerequisites
 
-```bash
-*********************************************************
-**  Welcome to Bangazon! Command Line Ordering System  **
-*********************************************************
-1. Create a customer account
-2. Choose active customer
-3. Create a payment option
-4. Add product to sell
-5. Add product to shopping cart
-6. Complete an order
-7. Remove customer product
-8. Update product information
-9. Show stale products
-10. Show customer revenue report
-11. Show overall product popularity
-12. Leave Bangazon!
->
+``` Ruby ``` for installation guide, see [the official Ruby download page](https://www.ruby-lang.org/en/downloads/).
+
+### Installing
+
+A step by step series of examples that tell you have to get a development env running
+
+Say what the step will be
+
 ```
+Give the example
+```
+
+And repeat
+
+```
+until finished
+```
+
+End with an example of getting some data out of the system or using it for a little demo
+
+## Running the tests
+
+Explain how to run the automated tests for this system
+
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [Ruby](http://ruby-lang.org/) - The language used
+* [SQLite3](https://www.sqlite.org/version3.html) - Library used to build the database
+* [MiniTest](https://github.com/seattlerb/minitest) - The testing suite used
+
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Authors
+
+* **LaKeshia Johnson** - [Personal Github](https://github.com/LaKeshiaJohnson)
+* **Tyler Barnett** - [Personal Github](https://github.com/tylerb33)
+* **Nora Moser** - [Personal Github](https://github.com/NoraMoser)
+* **Jordan Berghofer** - [Personal Github](https://github.com/jordanberghofer)
+* **Clay Massie** - [Personal Github](https://github.com/clmassie1)
+
+
+
 
 ## Requirements
 
