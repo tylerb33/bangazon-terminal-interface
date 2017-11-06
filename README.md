@@ -63,8 +63,11 @@ To contribute to this project, follow the steps below:
 1. After your updates are made on a branch, create a pull request and fully fill out the PR template to let us know what has been updated.
 
 ## Issue Reporting
-``` NEED TO FILL OUT
-```
+
+1. To report an issue, click the Issue tab within this repository on Github.
+1. Click 'New issue'
+1. Create an issue ticket clearly summarizing the issue in the Title field, and giving steps to recreate the issue in the 'Leave a comment' field.
+    * Please be as specific as possible in order to allow for quick fixes.
 
 ## Authors
 
