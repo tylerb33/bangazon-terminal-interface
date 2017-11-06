@@ -21,12 +21,7 @@ class Customer
 		
 
 	def add_new_customer
-<<<<<<< HEAD
-	begin 
-
-=======
 	begin
->>>>>>> master
 		db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
 		db.transaction
 
