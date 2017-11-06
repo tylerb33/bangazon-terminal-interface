@@ -4,9 +4,9 @@ require_relative '../controllers/payment_type_controller.rb'
 
 class PaymentTypeTest < Minitest::Test
     
-        def setup
-            @payment_type_controller = PaymentTypeController.new
-        end
+    def setup
+        @payment_type_controller = PaymentTypeController.new
+    end
 
     def test_account_number_sets_correct_value
         @payment_type_controller.set_account_number("1221212121213434")

@@ -14,9 +14,10 @@ class PaymentType
 
 	def add_new_payment_type
 		begin
+			puts $active_customer[0]
 			db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
 			db.transaction
-	        db.execute("INSERT INTO Payment_Types(Account_Number, Title) VALUES ('#{@account_number}', '#{@account_type}');")
+	        db.execute("INSERT INTO Payment_Types(Account_Number, Title, CustomerId) VALUES ('#{@account_number}', '#{@account_type}', #{$active_customer[0]});")
 	        db.commit
 
 			rescue SQLite3::Exception => e
