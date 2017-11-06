@@ -34,6 +34,7 @@ class MainMenuController
         when "2"
             customer = CustomerController.new
             customer.gather_all_customers
+
           # List all active customers to choose from.
         when "3"
             payment = PaymentTypeController.new

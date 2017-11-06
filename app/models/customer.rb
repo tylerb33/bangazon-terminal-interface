@@ -1,5 +1,5 @@
 require 'sqlite3'
-require 'pry'
+#require 'pry'
 
 # This Customer class is a model that deals with all-things-customer related. It has methods to add a new customer, get a single customer, get all customers & update a single customer.
 
