@@ -41,7 +41,13 @@ class MainMenuController
             payment.gather_payment_info
             # Create a payment type.
         when "4"
+            if $active_customer
             product = ProductController.new
+            product.get_all_product_info
+            else 
+                puts "you need an active customer!"
+                # display_main_menu 
+            end
             # Add a product to sell.
         when "5"
             order = OrderController.new

@@ -18,7 +18,7 @@ class CustomerTest < Minitest::Test
         :info_phone_number => "1-123-234-5678",
         :payment => nil
         } 
-
+ 
         )
     
     end
