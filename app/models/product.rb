@@ -1,6 +1,6 @@
 require 'sqlite3'
 
-class Product
+class Product 
     attr_accessor :price, :quantity, :title, :description
 
     def initialize(new_product_hash)
@@ -11,6 +11,7 @@ class Product
     end
 
     def create_new_product
+        # this adds a new product to the database
         begin
             db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
             db.transaction

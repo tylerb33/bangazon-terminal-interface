@@ -8,6 +8,7 @@ class ProductController
         @product_info = Hash.new
     end
 
+    # (below) this calls all of the methods so we can add just this to main menu
     def get_all_product_info
         get_product_price
         get_product_quantity
@@ -17,7 +18,7 @@ class ProductController
         @product_model = Product.new(@product_info) 
         @product_model.create_new_product 
     end
-
+# Each of these are called in the main menu, and the gets takes the user input then the set methods puts the answer into a hash
     def get_product_price
         puts "How much does your product cost?"
         puts ">"
@@ -33,7 +34,7 @@ class ProductController
         puts ">"
         set_product_quantity(gets.chomp)
     end
-
+ 
     def set_product_quantity(quantity)
         @product_info[:info_quantity] = quantity
     end

@@ -4,7 +4,7 @@ require_relative '../models/product.rb'
 class ProductTest < Minitest::Test
 
     def setup
-    # setup two things
+    # passing out hash into class Product
         @product = Product.new(
 
         { 
@@ -15,7 +15,7 @@ class ProductTest < Minitest::Test
         } 
 
         )
-    
+     
     end
 
     # Test for instance of the object
