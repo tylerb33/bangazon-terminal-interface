@@ -51,10 +51,10 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 ## Authors
 
 * **LaKeshia Johnson** - [Personal Github](https://github.com/LaKeshiaJohnson)
-* **Tyler Barnett** - [Personal Github](https://github.com/tylerb33)
-* **Nora Moser** - [Personal Github](https://github.com/NoraMoser)
 * **Jordan Berghofer** - [Personal Github](https://github.com/jordanberghofer)
+* **Nora Moser** - [Personal Github](https://github.com/NoraMoser)
 * **Clay Massie** - [Personal Github](https://github.com/clmassie1)
+* **Tyler Barnett** - [Personal Github](https://github.com/tylerb33)
 
 
 
