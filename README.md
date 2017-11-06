@@ -53,8 +53,14 @@ All tests for this application can be found in the ```test_model``` and ```test_
 
 
 ## Contributing
-``` NEED TO FILL OUT
-```
+
+To contribute to this project, follow the steps below:
+
+1. Go to the repository (https://github.com/Puddlemere-United/bangazon-terminal-interface).
+1. Fork the repository to your Github account.
+1. Clone the repository to your local directory.
+1. Follow the "Installation" steps above to get the API up and running.
+1. After your updates are made on a branch, create a pull request and fully fill out the PR template to let us know what has been updated.
 
 ## Issue Reporting
 ``` NEED TO FILL OUT
