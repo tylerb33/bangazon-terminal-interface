@@ -53,8 +53,12 @@ All tests for this application can be found in the ```test_model``` and ```test_
 
 
 ## Contributing
+``` NEED TO FILL OUT
+```
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+## Issue Reporting
+``` NEED TO FILL OUT
+```
 
 ## Authors
 
