@@ -12,30 +12,38 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
+In order to get this running on your system, just follow the below steps. Note that this program runs completely on the command line of your system.
 
-Say what the step will be
+- Clone down this repository, which will create a new directory for this project on your system
+- Within the terminal, CD into this newly created directory
+- Navigate to the ``` db ``` sub-directory
+- Run the following command to initialize the database ``` ruby database.rb ```
+    * The database now exists in the database_sprint2.sqlite file!
+    * Note: there is also a test initialization file that will create a test database for you if you'd like to run that as    
+    well, they both exist within this ``` db ``` directory.
+- Within this project navigate into the ``` app ``` directory and, from the Terminal and input ``` ruby main.rb ``` to launch the program. Below are the options you will be presented with:
 
+```bash
+*********************************************************
+**  Welcome to Bangazon! Command Line Ordering System  **
+*********************************************************
+1. Create a customer account
+2. Choose active customer
+3. Create a payment option
+4. Add product to shopping cart
+5. Complete an order
+6. See product popularity
+7. Leave Bangazon!
+>
 ```
-Give the example
-```
+- Follow the prompts on the screen to interact with the system.
+- For an easy way to view the data within your database, it's suggested to use a tool such as [DB Browser](http://sqlitebrowser.org/).
 
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+All tests for this application can be found in the ```test_model``` and ```test_controller``` directories to test the models and controllers respectively. For an example, to run tests for one of the controllers you would just navigate to the test_controller directory and run one of the files. For instance, you could run ``` ruby customer_controller_test.rb ```. The test will be run with ``` Minitest ``` and results will display within the terminal.
 
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
