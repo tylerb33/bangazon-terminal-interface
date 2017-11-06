@@ -41,7 +41,7 @@ class MainMenuController
             payment.gather_payment_info
             # Create a payment type.
         when "4"
-            if $active_customer = true
+            if $active_customer
             product = ProductController.new
             product.get_all_product_info
             else 

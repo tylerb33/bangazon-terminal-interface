@@ -15,7 +15,7 @@ class Product
         begin
             db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
             db.transaction
-            db.execute("INSERT INTO Products(Price, Quantity, Title, Description) VALUES ('#{@price}', '#{@quantity}', '#{@title}', '#{@description}');")
+            db.execute("INSERT INTO Products(Price, Quantity, Title, Description, Seller_Id) VALUES ('#{@price}', '#{@quantity}', '#{@title}', '#{@description}', #{$active_customer[0]});")
             db.commit
 
         rescue SQLite3::Exception => e
