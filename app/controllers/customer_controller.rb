@@ -115,6 +115,7 @@ class CustomerController
                 puts "#{$active_customer}"
             end
         end
+        
         @main_menu_controller.display_main_menu  
         
     end
