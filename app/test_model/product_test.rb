@@ -7,12 +7,12 @@ class ProductTest < Minitest::Test
     # passing out hash into class Product
         @product = Product.new(
 
-        { 
-        :info_price => 32.32,  
-        :info_quantity => 32, 
-        :info_title => "yes", 
-        :info_description => "blah blah"
-        } 
+            { 
+            :info_price => 32.32,  
+            :info_quantity => 32, 
+            :info_title => "yes", 
+            :info_description => "blah blah"
+            } 
 
         )
      
