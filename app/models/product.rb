@@ -3,7 +3,7 @@ require 'sqlite3'
 class Product 
     attr_accessor :price, :quantity, :title, :description
 
-    def initialize(new_product_hash)
+    def initialize(**new_product_hash)
         @price = new_product_hash[:info_price]
         @quantity = new_product_hash[:info_quantity]
         @title = new_product_hash[:info_title]
@@ -27,7 +27,7 @@ class Product
 
     def get_all_products
         begin
-            db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
+            db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
             db.transaction
             db.execute("SELECT * FROM Products;")
 

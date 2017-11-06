@@ -50,8 +50,14 @@ class MainMenuController
             end
             # Add a product to sell.
         when "5"
-            order = OrderController.new
             # Add product to shopping cart
+            if $active_customer = true
+                order = OrderController.new                  
+                order.make_an_order
+            else 
+                puts "Please select an active customer"
+            
+            end
         when "6"
             order = OrderController.new
             # Complete an order
