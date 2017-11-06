@@ -34,6 +34,7 @@ class MainMenuController
             # Diplay the prompts for creating a new customer here.
         when "2"
             customer = CustomerController.new
+            
           # List all active customers to choose from.
         when "3"
             payment = PaymentTypeController.new
