@@ -2,7 +2,7 @@ require 'minitest/autorun'
 require_relative '../controllers/customer_controller.rb'
 
 class CustomerTest < Minitest::Test
-
+ 
 	def setup
 		@customer_controller = CustomerController.new
 		# @customer_test[:info_last_name] = "Nora"
