@@ -7,12 +7,12 @@ class ProductTest < Minitest::Test
     # passing out hash into class Product
         @product = Product.new(
 
-            { 
-            :info_price => 32.32,  
-            :info_quantity => 32, 
-            :info_title => "yes", 
-            :info_description => "blah blah"
-            } 
+        { 
+        :info_price => 32.32,  
+        :info_quantity => 32, 
+        :info_title => "yes", 
+        :info_description => "blah blah"
+        } 
 
         )
      
@@ -21,9 +21,9 @@ class ProductTest < Minitest::Test
     # Test for instance of the object
     
     def test_initialize
-    	assert_raises ArgumentError do 
+        assert_raises ArgumentError do 
         Product.new
-    	end
+        end
     end
 
     def test_initialize_for_product_arguments
