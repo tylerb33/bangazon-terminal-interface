@@ -78,9 +78,45 @@ class OrderController
 
 		puts "Your order total is $#{@order_total}. Ready to purchase? (Y/N)"
 
+		user_input = gets.chomp
+
+		if user_input == "Y"
+			order_pick_payment_type
+
+		elsif user_input == "N"
+			show_order
+
+		else
+			order_total_price
+			puts "Please pick Y or N"
+		end
+
 	end
 
 	def order_pick_payment_type
+
+		@payment_type = @order_model.get_payment_types_via_active_customer
+
+		puts "Please select a payment type: "
+
+		@payment_type.each_with_index do |value, index|
+			
+			puts "#{index+1}. #{value[2]}"
+			
+			end
+
+			user_payment_selection = gets.chomp
+			user_payment_selection = user_payment_selection.to_i
+			@payment_selection = user_payment_selection - 1
+
+
+			@payment_type.each_with_index do |value, index|
+				if index == @payment_selection
+					@payment_type_id = value[0]
+					puts "PAYMENT TYPE ID: #{@payment_type_id}"
+
+				end	
+			end
 
 	end
 
