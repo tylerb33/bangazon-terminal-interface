@@ -42,9 +42,10 @@ class Product
         begin
             db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
             db.transaction
-            db.execute("SELECT * FROM Products;")
+            get_all_stuff = db.execute("SELECT * FROM Products;")
 
             db.close
+            return get_all_stuff
         rescue SQLite3::Exception => e
             p "Exception with database query: #{e}"
         end

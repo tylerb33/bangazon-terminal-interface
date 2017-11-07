@@ -1,4 +1,5 @@
 require_relative '../models/product.rb'
+require_relative 'main_menu_controller.rb'
 
 class ProductController
 
@@ -8,6 +9,7 @@ class ProductController
         @product_info = Hash.new
         @product_test = Product.new
         @product_test2 = Product.new
+        @main_menu = MainMenuController.new
     end
 
     # (below) this calls all of the methods so we can add just this to main menu
@@ -19,6 +21,8 @@ class ProductController
 
         @product_model = Product.new(@product_info) 
         @product_model.create_new_product 
+        @main_menu.display_main_menu
+        
 
         
     end
@@ -46,7 +50,7 @@ class ProductController
     end
 
     def get_product_title
-        puts "What is the title of this project?"
+        puts "What is the title of this product?"
         puts ">"
         set_product_title(gets.chomp)
     end
