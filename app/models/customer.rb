@@ -21,42 +21,48 @@ class Customer
 		
 
 	def add_new_customer
-	begin
-		db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
-		db.transaction
+		begin
+			db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
+			db.transaction
 
-        db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) VALUES ('#{@first_name}', '#{@last_name}', '#{@active}', '#{@street_address}', '#{@city}', '#{@state}', '#{@postal_code}', '#{@phone}', '#{@payment}' );")
-        db.commit
-	
+    	    db.execute("INSERT INTO Customers(First_Name, Last_Name, Active, Street_Address, City, State, Postal_Code, Phone_Number, Payment_Type_Id) VALUES ('#{@first_name}', '#{@last_name}', '#{@active}', '#{@street_address}', '#{@city}', '#{@state}', '#{@postal_code}', '#{@phone}', '#{@payment}' );")
+    	    db.commit
+		
 
-		rescue SQLite3::Exception => e
-		p "Exception with database query: #{e}"
-		db.rollback
-	end
-	db.close
+			rescue SQLite3::Exception => e
+			p "Exception with database query: #{e}"
+			db.rollback
+		end
+
+		db.close
 
 	end
 
 	def get_all_customers
+
 		begin
 			db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
 			db.execute("SELECT * FROM Customers")
 		rescue SQLite3::Exception => e
 			p "Exception with database query: #{e}"
 		end
+
 	end
 
 	def get_single_customer(cusId)
+
 		begin
 			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
 			db.execute("SELECT * FROM Customers WHERE CustomerId = #{cusId}")
 		rescue SQLite3::Exception => e
 			p "Exception with database query: #{e}"
 		end
+
 	end
 
 	# The below takes 3 parameters in order to be as flexible as possible. By passing in a customer ID, the column name from the DB that you'd like to update & the new value of that field for the customer.
 	def update_single_customer(colName, newValue, cusId)
+
 		begin
 			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
 			db.execute("UPDATE Customers SET '#{colName}' = '#{newValue}' WHERE CustomerId = #{cusId}")
@@ -64,6 +70,7 @@ class Customer
 			p "Exception with database query: #{e}"
 			db.rollback
 		end
+		
 	end
 
 end

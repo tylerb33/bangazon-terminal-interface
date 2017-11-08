@@ -18,4 +18,5 @@ begin
     
     db.commit 
     db.close
+    
 end

@@ -1,7 +1,5 @@
 require 'sqlite3'
 
-
-
 class PaymentType
 	attr_accessor :account_type, :account_number 
 
@@ -13,6 +11,7 @@ class PaymentType
 
 
 	def add_new_payment_type
+
 		begin
 			puts $active_customer[0]
 			db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
@@ -20,34 +19,40 @@ class PaymentType
 	        db.execute("INSERT INTO Payment_Types(Account_Number, Title, CustomerId) VALUES ('#{@account_number}', '#{@account_type}', #{$active_customer[0]});")
 	        db.commit
 
-			rescue SQLite3::Exception => e
+		rescue SQLite3::Exception => e
 			p "Exception with database query: #{e}"
 			db.rollback
 		end
-	db.close
+		db.close
+
 	end
 
 
 	def get_single_payment(pmentId)
+
 		begin
 			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
 			db.execute("SELECT * FROM Payment_Types WHERE Payment_Type_Id = #{pmentId}")
 
-			rescue SQLite3::Exception => e
+		rescue SQLite3::Exception => e
 			p "Exception with database query: #{e}"
 		end
+
 	end
 
 	def update_single_payment(colName, newVal, pmtId)
+
 		begin
 			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
 			db.execute("UPDATE Payment_Types SET '#{colName}' = '#{newVal}' WHERE Payment_Type_Id = #{pmtId}")
-			rescue SQLite3::Exception => e
+		rescue SQLite3::Exception => e
 			p "Exception with database query: #{e}"
 		end
+
 	end
 
 	def get_all_payments
+
 		begin
 			db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
 			db.execute("SELECT * FROM Payment_Types")
@@ -56,6 +61,5 @@ class PaymentType
 		end
 
 	end
-
 
 end
