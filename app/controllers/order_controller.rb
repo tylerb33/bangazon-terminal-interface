@@ -2,10 +2,10 @@ require_relative '../models/order.rb'
 require_relative 'main_menu_controller.rb'
 require_relative 'payment_type_controller.rb'
 require_relative '../models/order_product.rb'
+require 'date'
 
 class OrderController
 	attr_accessor
-
 
 	def initialize
 		@main_menu_controller = MainMenuController.new
@@ -13,6 +13,7 @@ class OrderController
 		@product = Product.new
 		@shopping_cart = Array.new 
 		@order_product_model = OrderProduct.new
+		@actual_cart = {:order_id => "#{@order_id}", :product_id => "#{@product_id}"} 
 	end
 	 
 
@@ -23,11 +24,11 @@ class OrderController
 		if @open_orders.length < 1
 			@order_id = @order_model.make_order_id
 			make_an_order
-			@order_product_model.make_shopping_cart
+			# @order_product_model.make_shopping_cart
 		else 
 			@order_id = @open_orders[0][0]
 			make_an_order
-			@order_product_model.make_shopping_cart
+			# @order_product_model.make_shopping_cart
 		end
 		
 	end
@@ -51,8 +52,6 @@ class OrderController
 
 	end
 
-
-		
 	def check_user_input(user_input)
 		if user_input == "complete"
 			order_total_price
@@ -66,7 +65,10 @@ class OrderController
 	def user_input_is_selecting_index(user_input)
 		@product_test.each_with_index do |value, index|
 			if index == user_input
-				product_id = value[0]
+				@actual_cart[:product_id] = value[0]
+				@actual_cart[:order_id] = @order_id
+				puts @actual_cart
+				@order_product_model.make_shopping_cart(@actual_cart)
 				@shopping_cart = @shopping_cart << value
 			end
 		end
@@ -136,7 +138,9 @@ class OrderController
 
 			@payment_type.each_with_index do |value, index|
 				if index == @payment_selection
+					@date = DateTime.now
 					@payment_type_id = value[0]
+					@order_model.insert_payment_type_into_order(@payment_type_id, @date)
 					puts "PAYMENT TYPE ID: #{@payment_type_id}"
 
 				end	
