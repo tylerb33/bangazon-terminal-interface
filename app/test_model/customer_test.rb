@@ -4,20 +4,20 @@ require_relative '../models/customer.rb'
 class CustomerTest < Minitest::Test
 
     def setup
-    # setup two things
+        # setup two things
         @customer = Customer.new(
 
-        { 
-        :info_first_name => "Jane",  
-        :info_last_name => "Doe", 
-        :active => false, 
-        :info_street_address => "blah blah 123",
-        :info_city => "Nashville",
-        :info_state => "TN",
-        :info_postal_code => "12345",
-        :info_phone_number => "1-123-234-5678",
-        :payment => nil
-        } 
+            { 
+                :info_first_name => "Jane",  
+                :info_last_name => "Doe", 
+                :active => false, 
+                :info_street_address => "blah blah 123",
+                :info_city => "Nashville",
+                :info_state => "TN",
+                :info_postal_code => "12345",
+                :info_phone_number => "1-123-234-5678",
+                :payment => nil
+            } 
  
         )
     

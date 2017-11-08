@@ -24,3 +24,5 @@ class ProductTest < Minitest::Test
         @product_controller.set_product_quantity(3)
         assert_equal 3, @product_controller.product_info[:info_quantity]    
     end
+    
+end

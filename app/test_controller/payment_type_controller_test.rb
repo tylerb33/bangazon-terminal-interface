@@ -19,5 +19,4 @@ class PaymentTypeTest < Minitest::Test
         assert_equal "Visa", @payment_type_controller.payment_type_info[:account_type]
     end
 
-
 end

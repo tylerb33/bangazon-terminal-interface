@@ -10,6 +10,7 @@ class OrderProduct
 	end
 
 	def make_shopping_cart(product_order_hash)
+
 		begin
 			db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")
 			db.transaction
@@ -19,6 +20,9 @@ class OrderProduct
 			p "Exception with database query: #{e}"
 			db.rollback
 		end
+
 		db.close
+
 	end
+	
 end

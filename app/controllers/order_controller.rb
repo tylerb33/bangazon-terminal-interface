@@ -5,7 +5,6 @@ require_relative '../models/order_product.rb'
 require 'date'
 
 class OrderController
-	attr_accessor
 
 	def initialize
 		@main_menu_controller = MainMenuController.new
@@ -15,8 +14,7 @@ class OrderController
 		@order_product_model = OrderProduct.new
 		@actual_cart = {:order_id => "#{@order_id}", :product_id => "#{@product_id}"} 
 	end
-	 
-
+	
 	def check_open_order
 
 		@open_orders = @order_model.get_active_orders_for_customer 
@@ -48,11 +46,10 @@ class OrderController
 
 		check_user_input(gets.chomp)
 
-
-
 	end
 
 	def check_user_input(user_input)
+
 		if user_input == "complete"
 			order_total_price
 		else
@@ -60,9 +57,11 @@ class OrderController
 			user_input = user_input - 1
 			user_input_is_selecting_index(user_input)
 		end
+
 	end
 		
 	def user_input_is_selecting_index(user_input)
+
 		@product_test.each_with_index do |value, index|
 			if index == user_input
 				@actual_cart[:product_id] = value[0]
@@ -72,7 +71,9 @@ class OrderController
 				@shopping_cart = @shopping_cart << value
 			end
 		end
+
 		show_order
+
 	end
 
     def show_order 
@@ -84,7 +85,8 @@ class OrderController
         puts "*************************************************************"
 		puts ">"
 		
-        make_an_order
+		make_an_order
+		
 	end
 
 	def order_total_price
@@ -108,10 +110,8 @@ class OrderController
 
 		if user_input == "Y"
 			order_pick_payment_type
-
 		elsif user_input == "N"
 			show_order
-
 		else
 			order_total_price
 			puts "Please pick Y or N"
@@ -129,22 +129,20 @@ class OrderController
 			
 			puts "#{index+1}. #{value[2]}"
 			
-			end
+		end
 
-			user_payment_selection = gets.chomp
-			user_payment_selection = user_payment_selection.to_i
-			@payment_selection = user_payment_selection - 1
-
-
-			@payment_type.each_with_index do |value, index|
-				if index == @payment_selection
-					@date = DateTime.now
-					@payment_type_id = value[0]
-					@order_model.insert_payment_type_into_order(@payment_type_id, @date)
-					puts "PAYMENT TYPE ID: #{@payment_type_id}"
-
-				end	
-			end
+		user_payment_selection = gets.chomp
+		user_payment_selection = user_payment_selection.to_i
+		@payment_selection = user_payment_selection - 1
+		
+		@payment_type.each_with_index do |value, index|
+			if index == @payment_selection
+				@date = DateTime.now
+				@payment_type_id = value[0]
+				@order_model.insert_payment_type_into_order(@payment_type_id, @date)
+				puts "PAYMENT TYPE ID: #{@payment_type_id}"
+			end	
+		end
 
 	end
 
