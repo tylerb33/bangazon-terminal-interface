@@ -34,7 +34,6 @@ class MainMenuController
         when "2"
             customer = CustomerController.new
             customer.gather_all_customers
-
           # List all active customers to choose from.
         when "3"
             payment = PaymentTypeController.new
@@ -53,7 +52,6 @@ class MainMenuController
             if $active_customer
                 order = OrderController.new
                 order.check_open_order
-
             else
                 puts "You need an active customer!"
                 display_main_menu
@@ -64,7 +62,6 @@ class MainMenuController
             if $active_customer
                 order = OrderController.new
                 order.check_open_order
-                
             else
                 puts "You need an active customer!"
                 display_main_menu
@@ -72,8 +69,8 @@ class MainMenuController
             # Complete an order
         when "7"
             if $active_customer
-            product = ProductController.new
-            product.gather_all_products
+                product = ProductController.new
+                product.gather_all_products
             else
                 puts "you need an active customer!"
             end

@@ -14,6 +14,7 @@ class ProductController
 
     # (below) this calls all of the methods so we can add just this to main menu
     def get_all_product_info
+
         get_product_price
         get_product_quantity
         get_product_title
@@ -22,9 +23,7 @@ class ProductController
         @product_model = Product.new(@product_info) 
         @product_model.create_new_product 
         @main_menu.display_main_menu
-        
-
-        
+                
     end
 # Each of these are called in the main menu, and the gets takes the user input then the set methods puts the answer into a hash
 
@@ -72,23 +71,28 @@ class ProductController
     # ***********************************************
 
     def gather_all_products
+
         @product_t = @product_test.get_products_via_active_customer
         puts @product_t.class
         @product_t.each_with_index do |value, index|
             puts "#{index+1}. #{value[4]}"
         end
+
         puts "pick the product you wish to delete."
         puts ">"
+
         user_input = gets.chomp
         user_input = user_input.to_i
         $delete_user_input = user_input - 1
+
         @product_t.each_with_index do |value, index|
+
             if index == $delete_user_input
                 puts value[0]
                 @product_test2.delete_single_product(value[0])
                 puts "you have deleted that product"
             end 
-        
+            
         end
         
     end

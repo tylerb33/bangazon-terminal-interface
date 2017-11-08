@@ -5,13 +5,13 @@ class PaymentTypeTest < Minitest::Test
 
     def setup
     # setup two things
-    @payment = PaymentType.new(
+    @payment = PaymentType.new
 
-        { 
-        :account_number => "1234567",  
-        :account_type => "Visa", 
-        } 
-
+        (
+            { 
+                :account_number => "1234567",  
+                :account_type => "Visa", 
+            } 
         )
     
     end
@@ -19,14 +19,16 @@ class PaymentTypeTest < Minitest::Test
    # Test for instance of the object
     # *****working*****
     def test_initialize
+
         assert_raises ArgumentError do 
-        PaymentType.new
+            PaymentType.new
         end
+
     end
 
     # *****working*****
     def test_initialize_for_arguments
-    assert_instance_of PaymentType, @payment 
+        assert_instance_of PaymentType, @payment 
     end
 
     # *****IN PROGRESS******
@@ -47,7 +49,6 @@ class PaymentTypeTest < Minitest::Test
         single_payment = @payment.get_single_payment(1)
         assert_instance_of Array, single_payment
     end
-
 
     # *****TBD*****
     def test_updating_payment

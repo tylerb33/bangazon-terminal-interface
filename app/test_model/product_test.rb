@@ -4,16 +4,15 @@ require_relative '../models/product.rb'
 class ProductTest < Minitest::Test
 
     def setup
-    # passing out hash into class Product
-        @product = Product.new(
-
-        { 
-        :info_price => 32.32,  
-        :info_quantity => 32, 
-        :info_title => "yes", 
-        :info_description => "blah blah"
-        } 
-
+        # passing out hash into class Product
+        @product = Product.new
+        (
+            { 
+                :info_price => 32.32,  
+                :info_quantity => 32, 
+                :info_title => "yes", 
+                :info_description => "blah blah"
+            } 
         )
      
     end
@@ -22,12 +21,12 @@ class ProductTest < Minitest::Test
     
     def test_initialize
         assert_raises ArgumentError do 
-        Product.new
+            Product.new
         end
     end
 
     def test_initialize_for_product_arguments
-    assert_instance_of Product, @product 
+        assert_instance_of Product, @product 
     end
 
     def test_create_product_sql

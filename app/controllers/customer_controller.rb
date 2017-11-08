@@ -99,15 +99,18 @@ class CustomerController
 ######################## Everything below is Main Menu option 2 ##############################
     def gather_all_customers
         @customer_t = @customer_test.get_all_customers
+
         puts "************************SELECT A CUSTOMER************************"
         @customer_t.each_with_index do |value, index|
             puts "#{index+1}. #{value[2]}, #{value[1]}"
         end
         puts "*****************************************************************"
         puts ">"
+
         user_input = gets.chomp
         user_input = user_input.to_i
         user_input = user_input - 1
+        
         @customer_t.each_with_index do |value, index|
             if index == user_input
                 $active_customer = value
