@@ -52,7 +52,8 @@ class MainMenuController
         when "5"
             if $active_customer
                 order = OrderController.new
-                order.make_an_order
+                order.check_open_order
+
             else
                 puts "You need an active customer!"
                 display_main_menu
@@ -60,7 +61,14 @@ class MainMenuController
 
             # Add product to shopping cart
         when "6"
-            order = OrderController.new
+            if $active_customer
+                order = OrderController.new
+                order.check_open_order
+                
+            else
+                puts "You need an active customer!"
+                display_main_menu
+            end
             # Complete an order
         when "7"
             if $active_customer

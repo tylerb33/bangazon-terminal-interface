@@ -1,18 +1,37 @@
 require_relative '../models/order.rb'
 require_relative 'main_menu_controller.rb'
 require_relative 'payment_type_controller.rb'
+require_relative '../models/order_product.rb'
 
 class OrderController
 	attr_accessor
+
 
 	def initialize
 		@main_menu_controller = MainMenuController.new
 		@order_model = Order.new
 		@product = Product.new
 		@shopping_cart = Array.new 
+		@order_product_model = OrderProduct.new
 	end
-     
+	 
 
+	def check_open_order
+
+		@open_orders = @order_model.get_active_orders_for_customer 
+
+		if @open_orders.length < 1
+			@order_id = @order_model.make_order_id
+			make_an_order
+			@order_product_model.make_shopping_cart
+		else 
+			@order_id = @open_orders[0][0]
+			make_an_order
+			@order_product_model.make_shopping_cart
+		end
+		
+	end
+	
 	def make_an_order
 
 		@product_test = @product.get_all_products
@@ -27,6 +46,9 @@ class OrderController
 		puts ">"
 
 		check_user_input(gets.chomp)
+
+
+
 	end
 
 
@@ -44,6 +66,7 @@ class OrderController
 	def user_input_is_selecting_index(user_input)
 		@product_test.each_with_index do |value, index|
 			if index == user_input
+				product_id = value[0]
 				@shopping_cart = @shopping_cart << value
 			end
 		end
@@ -69,6 +92,7 @@ class OrderController
 		puts "************************YOUR ORDER***************************"
 		@shopping_cart.each_with_index do |value, index|
 			puts "#{index+1}. Product: #{value}"
+			# puts @shopping_cart.inspect
 		end
         puts "*************************************************************"
 
