@@ -7,20 +7,6 @@ class PaymentTypeController
 
 attr_accessor :payment_type_info
 
-=begin
-$placeholder_active_customer = 
-{
-    :CustomerId=> 1,
-    :info_first_name=>"Cara", 
-    :info_last_name=>"Ward", 
-    :info_street_address=>"44455 Jackson St.", 
-    :info_city=>"Indianapolis", 
-    :info_state=>"IN", 
-    :info_postal_code=>"47222", 
-    :info_phone_number=>"4443335555"
-}
-=end
-
     def initialize 
         @payment_type_info = Hash.new
         @main_menu_controller = MainMenuController.new
