@@ -74,5 +74,5 @@ To contribute to this project, follow the steps below:
 * **LaKeshia Johnson** - [Personal Github](https://github.com/LaKeshiaJohnson)
 * **Jordan Berghofer** - [Personal Github](https://github.com/jordanberghofer)
 * **Nora Moser** - [Personal Github](https://github.com/NoraMoser)
-* **Clay Massie** - [Personal Github](https://github.com/clmassie1)
 * **Tyler Barnett** - [Personal Github](https://github.com/tylerb33)
+* **Clay Massie** - [Personal Github](https://github.com/clmassie1)
