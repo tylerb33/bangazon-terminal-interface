@@ -30,7 +30,7 @@ class ProductController
 
     def get_product_price
         puts "How much does your product cost?"
-        puts ">"
+        print "> "
         set_product_price(gets.chomp)
     end
 
@@ -40,7 +40,7 @@ class ProductController
 
     def get_product_quantity
         puts "how many of this product do you have to sell?"
-        puts ">"
+        print "> "
         set_product_quantity(gets.chomp)
     end
  
@@ -50,7 +50,7 @@ class ProductController
 
     def get_product_title
         puts "What is the title of this product?"
-        puts ">"
+        print "> "
         set_product_title(gets.chomp)
     end
 
@@ -60,7 +60,7 @@ class ProductController
 
     def get_product_description
         puts "What is the description of this product?"
-        puts ">"
+        print "> "
         set_product_description(gets.chomp)
     end
 
@@ -68,7 +68,7 @@ class ProductController
         @product_info[:info_description] = description
     end
 
-    # ***********************************************
+    # ****************************************************************************
 
     def gather_all_products
 
@@ -79,7 +79,7 @@ class ProductController
         end
 
         puts "pick the product you wish to delete."
-        puts ">"
+        print "> "
 
         user_input = gets.chomp
         user_input = user_input.to_i
