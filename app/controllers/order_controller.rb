@@ -44,13 +44,15 @@ class OrderController
 		puts "*************************************************************"
 		print ">"
 
-		check_user_input(gets.chomp)
+		user_input_for_complete = gets.chomp
+		user_input_to_uppercase = user_input_for_complete.upcase
+		check_user_input(user_input_to_uppercase)
 
 	end
 
 	def check_user_input(user_input)
 
-		if user_input == "complete"
+		if user_input == "COMPLETE"
 			order_total_price
 		else
 			user_input = user_input.to_i
@@ -141,7 +143,6 @@ class OrderController
 				@date = DateTime.now
 				@payment_type_id = value[0]
 				@order_model.insert_payment_type_into_order(@payment_type_id, @date)
-				puts "PAYMENT TYPE ID: #{@payment_type_id}"
 			end	
 		end
 
