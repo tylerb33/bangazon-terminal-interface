@@ -114,24 +114,26 @@ class CustomerController
             puts "#{index+1}. #{value[2]}, #{value[1]}"
         end
         puts "*****************************************************************"
-        puts ">"
+        print " >"
 
-        user_input = gets.chomp
-        user_input = user_input.to_i
-        user_input = user_input - 1
+        @user_input = gets.chomp
+        @user_input = @user_input.to_i
+        @user_input = @user_input - 1
         
         @customer_t.each_with_index do |value, index|
-            if index == user_input
+            # puts "current #{index}"
+            if index === @user_input
+                # puts "THE INDEX OF YOUR SELECTION #{@user_input}"
                 $active_customer = value
+                @main_menu_controller.display_main_menu  
                 puts "You have selected #{$active_customer[1]} to be the active customer"
-                puts "#{$active_customer}"
+                # puts "#{$active_customer}"
+                puts "That isn't a valid option."
             end
         end
-        
-        @main_menu_controller.display_main_menu  
-        
+        gather_all_customers
     end
-
+        
 
 
     private
