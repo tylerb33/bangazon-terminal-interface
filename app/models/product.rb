@@ -58,7 +58,7 @@ class Product
 
     def delete_single_product(delete_user_product)
 
-        puts delete_user_product
+        puts "This is the parameter inside delete_single_product: #{delete_user_product}"
 
         begin
             db = SQLite3::Database.open("../db/test_database_sprint2.sqlite")

@@ -42,7 +42,7 @@ class OrderController
 
         puts 'Enter "complete" to complete your order.' 
 		puts "*************************************************************"
-		puts ">"
+		print ">"
 
 		check_user_input(gets.chomp)
 
@@ -83,7 +83,7 @@ class OrderController
 			puts "#{index+1}. Product: #{value}"
 		end
         puts "*************************************************************"
-		puts ">"
+		print ">"
 		
 		make_an_order
 		
@@ -107,14 +107,15 @@ class OrderController
 		puts "Your order total is $#{@order_total}. Ready to purchase? (Y/N)"
 
 		user_input = gets.chomp
+		user_input_capital = user_input.capitalize
 
-		if user_input == "Y"
+		if user_input_capital == "Y"
 			order_pick_payment_type
-		elsif user_input == "N"
+		elsif user_input_capital == "N"
 			show_order
 		else
 			order_total_price
-			puts "Please pick Y or N"
+			puts "Please input either 'Y' or 'N'"
 		end
 
 	end

@@ -7,8 +7,8 @@ class ProductController
 
     def initialize
         @product_info = Hash.new
-        @product_test = Product.new
-        @product_test2 = Product.new
+        @product = Product.new
+        @product2 = Product.new
         @main_menu = MainMenuController.new
     end
 
@@ -72,29 +72,29 @@ class ProductController
 
     def gather_all_products
 
-        @product_t = @product_test.get_products_via_active_customer
-        puts @product_t.class
-        @product_t.each_with_index do |value, index|
+        puts "Pick the corresponding number of the product you wish to delete."
+        puts ">"
+        @product = @product.get_products_via_active_customer
+        @product.each_with_index do |value, index|
             puts "#{index+1}. #{value[4]}"
         end
 
-        puts "pick the product you wish to delete."
-        puts ">"
 
         user_input = gets.chomp
         user_input = user_input.to_i
-        $delete_user_input = user_input - 1
-
-        @product_t.each_with_index do |value, index|
-
-            if index == $delete_user_input
-                puts value[0]
-                @product_test2.delete_single_product(value[0])
-                puts "you have deleted that product"
-            end 
-            
-        end
+        actual_index = user_input - 1
+        delete_product(@product[actual_index])
         
     end
+
+    private
+
+        def delete_product(product)
+            puts "this is product parameter in delete #{product[0]}"
+            @product2.delete_single_product(product[0])
+            puts "Your product #{product[4]} has been deleted."
+        end
+
+
 
 end 

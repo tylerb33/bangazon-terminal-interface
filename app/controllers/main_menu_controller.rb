@@ -28,27 +28,28 @@ class MainMenuController
 
         case user_input
         when "1"
+            # Display the prompts for creating a new customer here.
             customer = CustomerController.new
             customer.gather_all_customer_info
-            # Diplay the prompts for creating a new customer here.
         when "2"
+          # List all active customers to choose from.
             customer = CustomerController.new
             customer.gather_all_customers
-          # List all active customers to choose from.
         when "3"
+            # Create a payment type.
             payment = PaymentTypeController.new
             payment.gather_payment_info
-            # Create a payment type.
         when "4"
+            # Add a product to sell.
             if $active_customer
                 product = ProductController.new
                 product.get_all_product_info
             else 
-                puts "you need an active customer!"
+                puts "You need an active customer!"
                 display_main_menu 
             end
-            # Add a product to sell.
         when "5"
+            # Add product to shopping cart
             if $active_customer
                 order = OrderController.new
                 order.check_open_order
@@ -57,8 +58,8 @@ class MainMenuController
                 display_main_menu
             end
 
-            # Add product to shopping cart
         when "6"
+            # Complete an order
             if $active_customer
                 order = OrderController.new
                 order.check_open_order
@@ -66,24 +67,23 @@ class MainMenuController
                 puts "You need an active customer!"
                 display_main_menu
             end
-            # Complete an order
         when "7"
+            # Remove customer product
             if $active_customer
                 product = ProductController.new
                 product.gather_all_products
             else
-                puts "you need an active customer!"
+                puts "You need an active customer!"
             end
-            # Remove customer product
         when "8"
-            product = ProductController.new
             # Update product information
-        when "9"
             product = ProductController.new
+        when "9"
             # Show stale products
+            product = ProductController.new
         when "10"
-            customer = CustomerController.new
             # Show customer revenue report
+            customer = CustomerController.new
         when "11"
             # Should this be in the order controller or order_product controller?
             # Show overall product popularity

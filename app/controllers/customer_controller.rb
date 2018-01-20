@@ -36,7 +36,9 @@ class CustomerController
     def get_customer_first_name
         puts "What's your first name?"
         print "> "
-        set_customer_first_name(gets.chomp)
+        first_name = gets.chomp
+        first_name_title = to_titlecase(first_name)
+        set_customer_first_name(first_name_title)
     end
     def set_customer_first_name(first_name)
         @customer_info[:info_first_name] = first_name
@@ -45,7 +47,9 @@ class CustomerController
     def get_customer_last_name      
         puts "What's your last name? "
         print "> "
-        set_customer_last_name(gets.chomp)
+        last_name = gets.chomp
+        last_name_title = to_titlecase(last_name)
+        set_customer_last_name(last_name_title)
     end
     def set_customer_last_name(last_name)
         @customer_info[:info_last_name] = last_name
@@ -63,7 +67,9 @@ class CustomerController
     def get_customer_city
         puts "In what city do you live?"
         print "> "
-        set_customer_city(gets.chomp)
+        city = gets.chomp
+        city_title = to_titlecase(city)
+        set_customer_city(city_title)
     end
     def set_customer_city(city)
         @customer_info[:info_city] = city
@@ -72,8 +78,11 @@ class CustomerController
     def get_customer_state
         puts "In what state do you live?"
         print "> "
-        set_customer_state(gets.chomp)
+        state = gets.chomp
+        state_uppercase = state.upcase
+        set_customer_state(state_uppercase)
     end
+
     def set_customer_state(state)
         @customer_info[:info_state] = state
     end
@@ -122,4 +131,13 @@ class CustomerController
         @main_menu_controller.display_main_menu  
         
     end
+
+
+
+    private
+
+        def to_titlecase(string)
+            string.capitalize
+        end
+
 end
