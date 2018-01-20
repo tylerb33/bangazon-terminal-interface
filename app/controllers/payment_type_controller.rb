@@ -27,9 +27,17 @@ attr_accessor :payment_type_info
 
     # The below methods are broken out into a 'get info' and 'set info in the hash' method for testing. We will be testing all 'set' methods here.
     def get_account_number
+        begin
         puts "What account number would you like to use?"
         print ">"
-        set_account_number(gets.chomp)
+        user_acct_number = gets.chomp
+        user_acct_number = Integer(user_acct_number)
+        set_account_number(user_acct_number)
+        
+        rescue ArgumentError
+            puts "Please enter integers only!"
+            retry
+        end
     end
 
     def get_account_type

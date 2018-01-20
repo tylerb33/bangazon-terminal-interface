@@ -29,9 +29,17 @@ class ProductController
 
 
     def get_product_price
+        begin
         puts "How much does your product cost?"
-        puts ">"
-        set_product_price(gets.chomp)
+        print "> "
+        price_from_user = gets.chomp
+        price_from_user = Float(price_from_user)
+        set_product_price(price_from_user)
+
+        rescue ArgumentError
+            puts "Please enter numbers and decimals only!"
+            retry
+        end
     end
 
     def set_product_price(price)
@@ -39,9 +47,17 @@ class ProductController
     end
 
     def get_product_quantity
+        begin
         puts "how many of this product do you have to sell?"
-        puts ">"
-        set_product_quantity(gets.chomp)
+        print "> "
+        quantity_from_user = gets.chomp
+        quantity_from_user = Integer(quantity_from_user)
+        set_product_quantity(quantity_from_user)
+
+        rescue ArgumentError
+            puts "Please enter integers only!"
+            retry
+        end
     end
  
     def set_product_quantity(quantity)
@@ -50,7 +66,7 @@ class ProductController
 
     def get_product_title
         puts "What is the title of this product?"
-        puts ">"
+        print "> "
         set_product_title(gets.chomp)
     end
 
@@ -60,7 +76,7 @@ class ProductController
 
     def get_product_description
         puts "What is the description of this product?"
-        puts ">"
+        print "> "
         set_product_description(gets.chomp)
     end
 
@@ -68,7 +84,7 @@ class ProductController
         @product_info[:info_description] = description
     end
 
-    # ***********************************************
+    # ****************************************************************************
 
     def gather_all_products
 
@@ -79,7 +95,7 @@ class ProductController
         end
 
         puts "pick the product you wish to delete."
-        puts ">"
+        print "> "
 
         user_input = gets.chomp
         user_input = user_input.to_i

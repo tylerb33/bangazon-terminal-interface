@@ -86,12 +86,12 @@ class Product
 
     end
 
-    def update_single_product(colName, prodId)
+    def update_single_product(colName, newValue, prodId)
 
         begin
             db = SQLite3::Database.open("../../db/test_database_sprint2.sqlite")
             db.transaction
-            db.execute("UPDATE Products SET '#{colName}' = 'kite' WHERE Product_Id = #{prodId}")
+            db.execute("UPDATE Products SET '#{colName}' = '#{newValue}' WHERE Product_Id = #{prodId}")
 
             db.close
         rescue SQLite3::Exception => e
